@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using Chat.Application.Contracts;
 using Chat.Application.Features.Message.Dto;
+using Chat.Application.Response;
 using MediatR;
 using Microsoft.Extensions.Logging;
 using System;
@@ -28,7 +29,7 @@ namespace Chat.Application.Features.Message.Query.GetAllMessage
             try 
             {
                 var messages = await _repository.GetAllAsync();
-                return _mapper.Map<List<MessageReturnDto>>(messages);
+                return  _mapper.Map<List<MessageReturnDto>>(messages);
             }
             catch(Exception ex) 
             {

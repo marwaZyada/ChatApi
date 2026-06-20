@@ -17,10 +17,19 @@ namespace Chat.Application.Features.Message.Command.AddMessage
         {
             _repository = repository;
         }
-        public Task<Unit> Handle(AddMessageCommand request, CancellationToken cancellationToken)
+        public async Task<Unit> Handle(AddMessageCommand request, CancellationToken cancellationToken)
         {
-           
-            return Task.FromResult(Unit.Value);
+            var message = new Domain.Entities.Message
+            {
+                
+                Content = request.Content,
+                SenderId =Guid.Parse( request.SenderId),
+                RecepientId = Guid.Parse(request.RecepientId),
+                
+            };
+            await _repository.AddAsync(message);
+            await _repository.SaveChangesAsync(cancellationToken);
+            return Unit.Value;
         }
     }
 }
