@@ -1,4 +1,5 @@
 ﻿using Chat.Application.Behavior;
+using Chat.Application.Contracts;
 using FluentValidation;
 using MediatR;
 using Microsoft.Extensions.DependencyInjection;
@@ -10,14 +11,15 @@ namespace Chat.Application
     {
         public static IServiceCollection AddApplication(this IServiceCollection services)
         {
-            services.AddMediatR(cfg =>
-          cfg.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly()));
+            services.AddMediatR(Assembly.GetExecutingAssembly());
         
 
 
             // fluent validation
             services.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly());
             services.AddTransient( typeof(IPipelineBehavior<,>),typeof(ValidationBehavior<,>));
+
+           
 
 
             services.AddAutoMapper(Assembly.GetExecutingAssembly());
