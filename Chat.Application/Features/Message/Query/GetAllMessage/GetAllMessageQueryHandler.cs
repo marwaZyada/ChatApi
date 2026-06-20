@@ -13,11 +13,11 @@ namespace Chat.Application.Features.Message.Query.GetAllMessage
 {
     public class GetAllMessageQueryHandler : IRequestHandler<GetAllMessageQuery, List<MessageReturnDto>>
     {
-        private readonly ImessageRepository _repository;
+        private readonly IMessageRepository _repository;
         private readonly IMapper _mapper;
         private readonly ILogger<GetAllMessageQuery> _logger;
 
-        public GetAllMessageQueryHandler(ImessageRepository repository,IMapper mapper,ILogger<GetAllMessageQuery> logger)
+        public GetAllMessageQueryHandler(IMessageRepository repository,IMapper mapper,ILogger<GetAllMessageQuery> logger)
         {
             _repository = repository;
             _mapper = mapper;

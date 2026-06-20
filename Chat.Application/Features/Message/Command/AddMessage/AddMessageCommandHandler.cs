@@ -11,9 +11,9 @@ namespace Chat.Application.Features.Message.Command.AddMessage
 {
     public class AddMessageCommandHandler : IRequestHandler<AddMessageCommand, Unit>
     {
-        private readonly ImessageRepository _repository;
+        private readonly IMessageRepository _repository;
 
-        public AddMessageCommandHandler(ImessageRepository repository)
+        public AddMessageCommandHandler(IMessageRepository repository)
         {
             _repository = repository;
         }
