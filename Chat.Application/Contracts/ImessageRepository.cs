@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Chat.Application.Contracts
 {
-    public interface ImessageRepository:IGenericRepository<Message>
+    public interface IMessageRepository:IGenericRepository<Message>
     {
         Task<int> Count();
     }
