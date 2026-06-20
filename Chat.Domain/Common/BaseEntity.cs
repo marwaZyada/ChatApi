@@ -9,8 +9,9 @@ namespace Chat.Domain.Common
     public abstract class BaseEntity
     {
         public Guid Id { get; set; } = Guid.NewGuid();
-        public DateOnly CreatedAt { get; set; }=DateOnly.FromDateTime(DateTime.UtcNow);
-        public DateOnly? UpdatedAt { get; set; }
+        public DateTime CreatedAt { get; set; }=DateTime.UtcNow;
+        public DateTime? UpdatedAt { get; set; }
+        public bool IsDeleted { get; set; }
         public bool IsActive { get; set; }
     }
 }
