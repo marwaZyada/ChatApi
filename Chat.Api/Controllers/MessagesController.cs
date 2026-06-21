@@ -1,14 +1,16 @@
-﻿using Chat.Application.Features.Message.Command.AddMessage;
+﻿using Asp.Versioning;
 using Chat.Application.Features.Message.Command.AddMessage;
-using Chat.Application.Features.Message.Query.GetAllMessage;
+using Chat.Application.Features.Message.Command.AddMessage;
 using Chat.Application.Features.Message.Dto;
+using Chat.Application.Features.Message.Query.GetAllMessage;
+using Chat.Application.Response;
 using MediatR;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Chat.Application.Response;
 
 namespace Chat.Api.Controllers
 {
+    
     public class MessagesController : BaseApiController
     {
         public MessagesController(IMediator mediator) : base(mediator)

@@ -1,11 +1,13 @@
-﻿using Chat.Application.Response;
+﻿using Asp.Versioning;
+using Chat.Application.Response;
 using MediatR;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Chat.Api.Controllers
 {
-    [Route("api/[controller]")]
+    [ApiVersion("1.0")]
+    [Route("api/v{version:apiVersion}/[controller]")]
     [ApiController]
     public class BaseApiController : ControllerBase
     {
