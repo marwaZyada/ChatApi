@@ -2,6 +2,8 @@
 using Chat.Application.Extensions;
 using Chat.Domain.Common;
 using Chat.Domain.Entities;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -12,7 +14,7 @@ using System.Threading.Tasks;
 
 namespace Chat.Infrastructure.Data
 {
-    public class AppDbContext:DbContext, IAppDbContext
+    public class AppDbContext: IdentityDbContext<AppUser, IdentityRole<Guid>, Guid>, IAppDbContext
     {
         public AppDbContext(DbContextOptions<AppDbContext> options): base(options)
         {
@@ -25,6 +27,8 @@ namespace Chat.Infrastructure.Data
             modelBuilder.ApplyGlobalFilters();
         }
         public DbSet<Message> Messages { get; set; }
+
+        public DbSet<RefreshToken> RefreshTokens { get; set; }
 
         public override async Task<int> SaveChangesAsync( CancellationToken cancellationToken = default)
         {

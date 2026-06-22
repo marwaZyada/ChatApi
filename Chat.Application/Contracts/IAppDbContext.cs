@@ -12,6 +12,7 @@ namespace Chat.Application.Contracts
     public interface IAppDbContext
     {
         public DbSet<Message> Messages { get; }
+        public DbSet<RefreshToken> RefreshTokens { get; }
 
         DbSet<TEntity> Set<TEntity>()
             where TEntity : class;
