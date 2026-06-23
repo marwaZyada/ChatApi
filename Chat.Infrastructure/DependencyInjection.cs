@@ -25,6 +25,7 @@ namespace Chat.Infrastructure
             services.AddDataProtection();
 
             services.AddIdentityCore<AppUser>().AddRoles<IdentityRole<Guid>>()
+                .AddSignInManager()
             .AddEntityFrameworkStores<AppDbContext>()
             .AddDefaultTokenProviders();
 

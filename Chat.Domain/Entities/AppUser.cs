@@ -15,7 +15,7 @@ namespace Chat.Domain.Entities
         public bool IsDeleted { get; set; }
         public bool IsActive { get; set; }
         public ICollection<Photo>? Photos { get; set; }
-        public ICollection<RefreshToken> RefreshTokens { get; set; }
+        public virtual ICollection<RefreshToken> RefreshTokens { get; set; }
        = new List<RefreshToken>();
     }
 }

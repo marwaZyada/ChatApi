@@ -13,6 +13,8 @@ namespace Chat.Application.Contracts
     {
         public DbSet<Message> Messages { get; }
         public DbSet<RefreshToken> RefreshTokens { get; }
+        public DbSet<Photo> Photos { get; }
+        public DbSet<AppUser> AppUsers { get; }
 
         DbSet<TEntity> Set<TEntity>()
             where TEntity : class;

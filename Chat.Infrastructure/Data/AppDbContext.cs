@@ -30,6 +30,10 @@ namespace Chat.Infrastructure.Data
 
         public DbSet<RefreshToken> RefreshTokens { get; set; }
 
+        public DbSet<Photo> Photos { get; set; }
+
+        public DbSet<AppUser> AppUsers { get; set; }
+
         public override async Task<int> SaveChangesAsync( CancellationToken cancellationToken = default)
         {
             var entries = ChangeTracker
